@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Hello</h1>
+    <p class="lead">This system is useful in tracking wireless modules.</p>
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting Started</h2>
+        <p>
+            New users needs to login first.
+            <div>
+                @Html.ActionLink("List of modules assigned to me", "Index", "WirelessModules")
+            </div>
+
+        </p>
+
+    </div>
+
+</div>

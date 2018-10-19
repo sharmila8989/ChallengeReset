@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNet.Identity
+@model IEnumerable<TrackModWebApp.Models.WirelessModule>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model=>model.Student.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MacAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IssueDate)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.Student.Id == User.Identity.GetUserName())
+        {
+            <tr>
+                 <td>
+                    @Html.DisplayFor(modelItem => item.Student.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MacAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IssueDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MacAddress }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.MacAddress }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.MacAddress })
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+
